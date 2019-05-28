@@ -1,0 +1,31 @@
+/* 超小设备（手机，小于 768px） */
+
+@media screen and (min-width:480px) {
+    .page-root {}
+}
+
+/* 小型设备（平板电脑，768px 起） */
+
+@media screen and (min-width:768px) {
+    .page-root {}
+}
+
+/* 中型设备（台式电脑，992px 起） */
+
+@media screen and (min-width:992px) {
+    .page-root {}
+}
+
+/* 大型设备（大台式电脑，1200px 起） */
+
+@media screen and (min-width:1200px) {
+    .page-root {}
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+a{
+    text-decoration: none;
+}
