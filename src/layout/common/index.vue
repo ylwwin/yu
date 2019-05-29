@@ -1,9 +1,6 @@
 <template>
   <div class="page-root">
     <top-bar></top-bar>
-    <div class="page-menu">
-      <left-menu></left-menu>
-    </div>
     <main class="page-content">
       <router-view/>
     </main>
@@ -13,12 +10,11 @@
 <script>
 import TopBar from "@/components/layout/TopBar";
 import BottomBar from "@/components/layout/BottomBar";
-import LeftMenu from "@/components/layout/LeftMenu";
+
 export default {
   components: {
     "top-bar": TopBar,
-    "bottom-bar": BottomBar,
-    "left-menu": LeftMenu
+    "bottom-bar": BottomBar
   }
 };
 </script>
@@ -28,8 +24,8 @@ export default {
   position: relative;
   background: #ecf0f2;
   .page-content {
-    min-height: 800px;
-    width: 72%;
+    position: relative;
+    width: 1200px;
     margin: 0 auto;
     padding-top: 60px;
   }

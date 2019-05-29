@@ -9,9 +9,11 @@
   background: #f8f9fa;
   width: 100%;
   height: 240px;
+  margin-top: 20px;
   .bottom-content {
-    width: 72%;
+    width: 1200px;
     margin: 0 auto;
   }
 }
 </style>
+
