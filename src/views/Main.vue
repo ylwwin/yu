@@ -3,6 +3,7 @@
     <div class="left-main">
       <today></today>
       <filters></filters>
+      <i class="icon-xingqiu"></i>
       <div class="content">
         <fun v-for="item in funs" :key="item.id"></fun>
       </div>
@@ -40,6 +41,18 @@ export default {
   }
   .left-main {
     width: calc(100% - 310px);
+    .icon-xingqiu {
+      float: right;
+      margin-right: 20px;
+      line-height: 50px;
+      font-size: 28px;
+      transition: all .48s ease-in-out;
+      cursor: pointer;
+    }
+    .icon-xingqiu:hover {
+      color: #f38181;
+      transform: rotate(360deg);
+    }
   }
   .right-main {
     width: 300px;

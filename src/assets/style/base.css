@@ -2,7 +2,9 @@
 .float-left {
     float: left;
 }
-
+.display-inline-block{
+    display: inline-block;
+}
 .float-right {
     float: right;
 }

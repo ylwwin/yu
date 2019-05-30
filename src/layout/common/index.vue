@@ -25,7 +25,7 @@ export default {
   background: #ecf0f2;
   .page-content {
     position: relative;
-    width: 1200px;
+    width: 1000px;
     margin: 0 auto;
     padding-top: 60px;
   }
