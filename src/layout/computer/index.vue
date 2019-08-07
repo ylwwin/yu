@@ -5,16 +5,32 @@
       <router-view/>
     </main>
     <bottom-bar></bottom-bar>
+    <my-dialog title="登录" :value="show"/>
   </div>
 </template>
 <script>
 import TopBar from "@/components/layout/TopBar";
 import BottomBar from "@/components/layout/BottomBar";
-
+import dialog from "@/components/layout/Dialog";
+import Bus from "@/utils/bus";
 export default {
   components: {
     "top-bar": TopBar,
-    "bottom-bar": BottomBar
+    "bottom-bar": BottomBar,
+    "my-dialog": dialog
+  },
+  data() {
+    return {
+      show: false
+    };
+  },
+  mounted() {
+    Bus.$on("showLoginBox", () => {
+      this.show = true;
+    });
+    Bus.$on("closeLoginBox", () => {
+      this.show = false;
+    });
   }
 };
 </script>
@@ -22,12 +38,12 @@ export default {
 <style lang="scss" scoped>
 .page-root {
   position: relative;
-  background: #ecf0f2;
+  background: #f6f8fa;
   .page-content {
     position: relative;
     width: 1000px;
     margin: 0 auto;
-    padding-top: 60px;
+    // padding-top: 20px;
   }
   .page-menu {
     position: fixed;

@@ -2,34 +2,42 @@
   <div class="top-root-box">
     <div class="top-content">
       <div class="item float-left logo">
-        <img src="static/images/yllsvg.png">
+        <router-link to="/">
+          <img src="static/images/yllsvg.png" />
+        </router-link>
       </div>
       <div class="item float-left menu">
         <top-menu></top-menu>
       </div>
       <div class="item float-right tools">
-        <span class="sign-in">登录</span>
-        <span class="sign-up">注册</span>
+        <span class="sign-in" @click="showLoginBox">登录</span>
+        <span class="sign-up" @click="toRegister">注册</span>
       </div>
       <div class="item float-right search">
-        <input type="text" placeholder="搜索">
+        <input type="text" placeholder="搜索" />
         <i class="icon-sousuo"></i>
       </div>
     </div>
   </div>
 </template>
 <script>
+import Bus from "@/utils/bus";
 import TopMenu from "@/components/bussiness/TopMenu";
 export default {
-  components: { "top-menu": TopMenu }
+  components: { "top-menu": TopMenu },
+  methods: {
+    toRegister() {
+      this.$router.push("register");
+    },
+    showLoginBox() {
+      Bus.$emit("showLoginBox");
+    }
+  }
 };
 </script>
 
 <style lang="scss" scoped>
 .top-root-box {
-  position: fixed;
-  left: 0;
-  top: 0;
   width: 100%;
   height: 60px;
   background: #fff;
@@ -80,10 +88,10 @@ export default {
       }
       input:focus {
         width: 180px;
-        border: 1px solid #ABDCFF;
+        border: 1px solid #abdcff;
       }
       input:focus ~ i {
-        color: #ABDCFF;
+        color: #abdcff;
       }
       i {
         position: absolute;

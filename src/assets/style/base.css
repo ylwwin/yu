@@ -1,16 +1,19 @@
-
 .float-left {
     float: left;
 }
-.display-inline-block{
+
+.display-inline-block {
     display: inline-block;
 }
+
 .float-right {
     float: right;
 }
-.clear-both{
+
+.clear-both {
     clear: both;
 }
+
 .color {
     color: #95e1d3;
 }
@@ -57,4 +60,21 @@
 
 .color {
     color: #c9d6df;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+    height: 1px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 2px;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+    background: #999;
+}
+
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+    border-radius: 2px;
+    background: #EDEDED;
 }

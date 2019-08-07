@@ -5,15 +5,33 @@
       <h3>99+</h3>
     </div>
     <div class="right">
-      <span>2019</span>
-      <i>星期二</i>
-      <h3>05/28</h3>
+      <span>{{year}}</span>
+      <i>{{day}}</i>
+      <h3>{{date}}</h3>
     </div>
   </div>
 </template>
 <script>
 export default {
-  computed: {}
+  computed: {
+    day: function() {
+      const days = ["日", "一", "二", "三", "四", "五", "六"];
+      return `星期${days[new Date().getDay()]}`;
+    },
+    year: function() {
+      return new Date().getFullYear();
+    },
+    date: function() {
+      let d = new Date();
+      return `${(d.getMonth() + 1).toString().padStart(2, "0")}/${d
+        .getDate()
+        .toString()
+        .padStart(2, "0")}`;
+    }
+  },
+  data() {
+    return {};
+  }
 };
 </script>
 

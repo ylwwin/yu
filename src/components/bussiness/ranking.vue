@@ -72,9 +72,21 @@ export default {
       cursor: pointer;
     }
     span.active {
+      position: relative;
       width: 34%;
       color: #f38181;
       border-bottom: 1px solid #f38181;
+    }
+    span.active::after {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 0;
+      border: 4px solid transparent;
+      border-bottom: 4px solid #f38181;
+      left: 50%;
+      margin-left: -2px;
+      bottom: -1px;
     }
   }
   .list {
@@ -94,13 +106,13 @@ export default {
           display: inline-block;
         }
         i {
-          width: 18px;
-          height: 18px;
-          margin-top: 3px;
+          width: 16px;
+          height: 16px;
+          margin-top: 5px;
           vertical-align: top;
           border-radius: 100%;
           background: #aaa;
-          line-height: 18px;
+          line-height: 16px;
           text-align: center;
           font-style: normal;
           font-size: 12px;
@@ -109,7 +121,7 @@ export default {
         span {
           width: calc(100% - 24px);
           height: 24px;
-          font-size: 14px;
+          font-size: 12px;
           color: #3f3f3f;
           white-space: nowrap;
           overflow: hidden;
