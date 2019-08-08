@@ -78,3 +78,18 @@
     border-radius: 2px;
     background: #EDEDED;
 }
+
+.btn {
+    border: none;
+    outline: none;
+    background: none;
+    box-shadow: 1px 1px rgba(0, 0, 0, 0.1);
+}
+.btn.default {
+    background: #F38181;
+    color: #fff;
+}
+
+.link{
+    color: #0077EE;
+}

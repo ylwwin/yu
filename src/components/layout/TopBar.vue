@@ -7,7 +7,7 @@
         </router-link>
       </div>
       <div class="item float-left menu">
-        <top-menu></top-menu>
+        <navs></navs>
       </div>
       <div class="item float-right tools">
         <span class="sign-in" @click="showLoginBox">登录</span>
@@ -22,9 +22,9 @@
 </template>
 <script>
 import Bus from "@/utils/bus";
-import TopMenu from "@/components/bussiness/TopMenu";
+import Nav from "@/components/bussiness/Nav";
 export default {
-  components: { "top-menu": TopMenu },
+  components: { "navs": Nav },
   methods: {
     toRegister() {
       this.$router.push("register");

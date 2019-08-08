@@ -35,8 +35,9 @@ export default {
     top: 0;
     width: 100%;
     height: 40px;
-    background: #fff;
-    box-shadow: 0 0 4px 2px rgba(0, 0, 0, 0.08);
+    background: rgb(249,250,250);
+    border-bottom: 1px solid rgb(240,240,240);
+    box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.02);
   }
   footer {
     position: fixed;
@@ -45,10 +46,10 @@ export default {
     width: 100%;
     height: 40px;
     background: #fff;
-    box-shadow: 0 0 4px 2px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.02);
   }
   main {
-    margin-top: 54px;
+    padding-top: 40px;
   }
 }
 </style>

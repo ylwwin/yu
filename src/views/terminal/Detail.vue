@@ -1,15 +1,15 @@
 <template>
   <div class="main-view-box">
     <div class="content-box">
-      <fun :content="fun"/>
+      <fun :content="fun" />
     </div>
     <div class="diss-box">
-      <diss/>
+      <diss />
     </div>
   </div>
 </template>
 <script>
-import fun from "@/components/bussiness/terminal/ContentForDetail";
+import fun from "@/components/bussiness/terminal/Content";
 import diss from "@/components/bussiness/terminal/Diss";
 export default {
   components: { fun, diss },
@@ -30,14 +30,17 @@ export default {
 
 <style lang="scss" scoped>
 .main-view-box {
-  width: calc(100% - 24px);
-  margin: 12px;
+  width: 100%;
   box-sizing: border-box;
   .content-box,
   .diss-box {
     box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.08);
-    padding: 12px;
-    margin-bottom: 12px;
+    padding: 8px;
+    margin-bottom: 8px;
+    background: #fff;
+  }
+  .diss-box {
+    min-height: 120px;
   }
 }
 </style>
