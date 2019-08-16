@@ -37,6 +37,7 @@ export default new Router({
         path: '/detail',
         name: "detail",
         component: () => import('@/views/terminal/Detail'),
+        meta: { detail: true }
       }]
     }
   ]

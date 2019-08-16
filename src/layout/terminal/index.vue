@@ -6,9 +6,12 @@
     <main>
       <router-view />
     </main>
-    <footer>
+    <footer v-if="!$route.meta.detail">
       <bottom-bar />
     </footer>
+    <div class="return-btn">
+      
+    </div>
   </div>
 </template>
 <script>
@@ -25,8 +28,8 @@ export default {
 <style lang="scss" scoped>
 .page-root {
   position: relative;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   box-sizing: border-box;
   background: #f6f8fa;
   header {
@@ -35,8 +38,8 @@ export default {
     top: 0;
     width: 100%;
     height: 40px;
-    background: rgb(249,250,250);
-    border-bottom: 1px solid rgb(240,240,240);
+    background: rgb(249, 250, 250);
+    border-bottom: 1px solid rgb(240, 240, 240);
     box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.02);
   }
   footer {

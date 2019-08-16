@@ -128,6 +128,10 @@ export default {
           cursor: pointer;
         }
       }
+      li:hover {
+        transform: scale(1.01);
+        border-bottom: 1px solid #c5c5c5;
+      }
     }
   }
 }
