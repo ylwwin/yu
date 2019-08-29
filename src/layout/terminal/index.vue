@@ -9,18 +9,18 @@
     <footer v-if="!$route.meta.detail">
       <bottom-bar />
     </footer>
-    <div class="return-btn">
-      
-    </div>
   </div>
 </template>
 <script>
 import TopBar from "@/components/layout/terminal/TopBar";
 import BottomBar from "@/components/layout/terminal/BottomBar";
 export default {
-  components: { "top-bar": TopBar, "bottom-bar": BottomBar },
+  components: {
+    ["top-bar"]: TopBar,
+    "bottom-bar": BottomBar
+  },
   data() {
-    return {};
+    return { active: 0 };
   },
   methods: {}
 };

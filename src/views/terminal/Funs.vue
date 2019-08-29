@@ -1,7 +1,7 @@
 <template>
   <div class="main-view-box">
     <ul>
-      <li v-for="fun in funs" :key="fun.title">
+      <li v-for="fun in funs" :key="fun.id">
         <fun :content="fun"></fun>
       </li>
     </ul>
@@ -15,6 +15,7 @@ export default {
     return {
       funs: [
         {
+          id: 1,
           title: "单身狗靠狗脱单",
           date: "2019-06-11 09:30",
           author: "ylwwin",
@@ -23,6 +24,7 @@ export default {
           zan: 20
         },
         {
+          id: 2,
           title: "单身狗靠狗脱单2",
           date: "2019-06-11 09:30",
           author: "ylwwin",
@@ -31,6 +33,7 @@ export default {
           zan: 20
         },
         {
+          id: 3,
           title: "单身狗靠狗脱单2",
           date: "2019-06-11 09:30",
           author: "ylwwin",

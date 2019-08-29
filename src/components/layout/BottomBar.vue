@@ -1,7 +1,11 @@
 <template>
   <div class="bottom-root-box">
     <div class="bottom-content">
-      <span>泛见志 FanJian.net&nbsp;&nbsp;&nbsp;&nbsp;关于我们联系我们加入我们用户协议免责声明商务合作</span>
+      <b>鱼乐了 yll.fun</b>
+      <router-link to="#1">关于我们</router-link>
+      <router-link to="#2">联系我们</router-link>
+      <router-link to="#3">用户协议</router-link>
+      <router-link to="#4">免责声明</router-link>
     </div>
   </div>
 </template>
@@ -17,8 +21,12 @@
     margin: 0 auto;
     text-align: center;
     font-size: 14px;
-    color: #999;
     line-height: 42px;
+    b,
+    a {
+      font-weight: normal;
+      color: #999;
+    }
   }
 }
 </style>

@@ -13,49 +13,18 @@
       </span>
     </div>
     <div class="diss-input-box">
+      <a @click="goBack" href="javascript:void(0)">
+        <embed src="/static/images/return.svg" width="50" height="40" type="image/svg+xml" />
+      </a>
       <textarea rows="3" v-model="diss" maxlength="120"></textarea>
-      <a class="btn default">发表评论</a>
-      <p>{{dissLen}}/120</p>
+      <a class="btn default">
+        <b>发&nbsp;布</b>
+        <span>{{dissLen}}/{{wordLimit}}</span>
+      </a>
     </div>
     <div class="diss-list-box">
       <ul>
-        <li>
-          <b>user:</b>
-          <span>吼吼吼吼吼吼吼吼吼吼吼吼吼吼吼吼</span>
-        </li>
-        <li>
-          <b>user:</b>
-          <span>吼吼吼吼吼吼吼吼吼吼吼吼吼吼吼吼</span>
-        </li>
-        <li>
-          <b>user:</b>
-          <span>吼吼吼吼吼吼吼吼吼吼吼吼吼吼吼吼</span>
-        </li>
-        <li>
-          <b>user:</b>
-          <span>吼吼吼吼吼吼吼吼吼吼吼吼吼吼吼吼</span>
-        </li>
-        <li>
-          <b>user:</b>
-          <span>吼吼吼吼吼吼吼吼吼吼吼吼吼吼吼吼</span>
-        </li>
-        <li>
-          <b>user:</b>
-          <span>吼吼吼吼吼吼吼吼吼吼吼吼吼吼吼吼</span>
-        </li>
-        <li>
-          <b>user:</b>
-          <span>吼吼吼吼吼吼吼吼吼吼吼吼吼吼吼吼</span>
-        </li>
-        <li>
-          <b>user:</b>
-          <span>吼吼吼吼吼吼吼吼吼吼吼吼吼吼吼吼</span>
-        </li>
-        <li>
-          <b>user:</b>
-          <span>吼吼吼吼吼吼吼吼吼吼吼吼吼吼吼吼</span>
-        </li>
-        <li>
+        <li v-for="i of 10" :key="i">
           <b>user:</b>
           <span>吼吼吼吼吼吼吼吼吼吼吼吼吼吼吼吼</span>
         </li>
@@ -68,12 +37,19 @@ export default {
   data() {
     return {
       dissCount: 10,
-      diss: ""
+      diss: "",
+      wordLimit: 120
     };
   },
   computed: {
     dissLen: function() {
       return this.diss.length;
+    }
+  },
+  methods:{
+    goBack(){
+      alert(1);
+      this.$router.replace("/funs");
     }
   }
 };
@@ -94,6 +70,7 @@ export default {
 }
 .diss-list-box {
   margin-bottom: 80px;
+  font-size: 12px;
 }
 .diss-input-box {
   position: fixed;
@@ -103,33 +80,38 @@ export default {
   background: rgb(249, 250, 250);
   border-top: 1px solid rgb(240, 240, 240);
   box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.02);
-  padding: 8px;
+  padding: 4px;
   textarea,
   a {
-    height: 40px;
+    height: 32px;
     display: inline-block;
     vertical-align: top;
   }
   textarea {
-    width: 80%;
+    width: calc(100% - 120px);
     padding: 2px;
     box-sizing: border-box;
     outline: none;
+    border: 1px solid #e5e5e5;
   }
   textarea:focus {
-    border: 1px solid rgb(149, 213, 238);
+    border: 1px solid #95d5ee;
   }
   a {
-    margin-left: 2%;
-    padding: 4px 8px 0;
-    box-sizing: border-box;
-    width: 12%;
+    width: 50px;
     font-size: 12px;
     text-align: center;
   }
-  p {
-    font-size: 12px;
-    color: rgb(151, 182, 194);
+  b {
+    font-weight: normal;
+    line-height: 22px;
+  }
+  span {
+    display: block;
+    width: 100%;
+    height: 16px;
+    transform: scale(0.72);
+    line-height: 0;
   }
   a:active {
     transform: translateY(1px);

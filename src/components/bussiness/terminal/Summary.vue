@@ -12,8 +12,8 @@
       <img :src="content.imgUrl" />
     </div>
     <div class="footer">
-      <div class="diss">
-        <i class="cubeic-hot"></i>
+      <div class="hot-diss">
+        <embed src="/static/images/hot.svg" width="32" height="32" type="image/svg+xml" />
         <span>{{content.title}}</span>
       </div>
       <div class="tools">
@@ -79,9 +79,14 @@ export default {
 .footer {
   width: 100%;
   line-height: 32px;
-  .diss {
-    i {
-      color: rgba(240, 40, 40, 0.72);
+  .hot-diss {
+    embed,
+    span {
+      display: inline-block;
+      vertical-align: middle;
+    }
+    embed {
+      height: 32px;
     }
     span {
       font-size: 14px;
@@ -95,7 +100,8 @@ export default {
       height: 32px;
       vertical-align: top;
     }
-    b, span{
+    b,
+    span {
       font-size: 12px;
     }
     b {

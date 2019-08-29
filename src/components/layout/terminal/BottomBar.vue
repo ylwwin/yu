@@ -3,39 +3,28 @@
 
 <template>
   <div class="top-root-box">
-    <div class="item left">
-      <embed
-        src="/static/images/search.svg"
-        width="32"
-        height="32"
-        type="image/svg+xml"
-        style="float:left"
-      />
-    </div>
-    <div class="item center">
-      <embed
-        src="/static/images/create.svg"
-        width="54"
-        height="54"
-        type="image/svg+xml"
-      />
-    </div>
-    <div class="item right">
-      <embed
-        src="/static/images/user.svg"
-        width="32"
-        height="32"
-        type="image/svg+xml"
-        style="float:left"
-      />
-    </div>
+    <van-tabbar v-model="active">
+      <van-tabbar-item icon="friends-o">标签</van-tabbar-item>
+      <van-tabbar-item icon="friends-o">标签</van-tabbar-item>
+      <van-tabbar-item>
+        <embed src="/static/images/create.svg" width="48" height="48" type="image/svg+xml" />
+      </van-tabbar-item>
+      <van-tabbar-item icon="friends-o">标签</van-tabbar-item>
+      <van-tabbar-item icon="setting-o">标签</van-tabbar-item>
+    </van-tabbar>
   </div>
 </template>
 
 <script>
+import { Tabbar, TabbarItem } from "vant";
 export default {
+  components: {
+    [Tabbar.name]: Tabbar,
+    [TabbarItem.name]: TabbarItem
+  },
   data() {
     return {
+      active: 0,
       focus: false,
       history: [
         { label: "热搜1" },
@@ -76,14 +65,15 @@ export default {
   .center {
     width: 80%;
     text-align: center;
-    em, embed{
+    em,
+    embed {
       vertical-align: middle;
     }
     em {
       font-size: 14px;
       color: #aaa;
     }
-    embed{
+    embed {
       margin-top: -6px;
     }
   }
