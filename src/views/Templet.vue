@@ -2,7 +2,7 @@
 <script>
 export default {
   mounted() {
-    if (this._isMobile()) this.$router.replace("/funs");
+    if (this._isMobile()) this.$router.replace("/funs/all");
     else this.$router.replace("/home");
   },
   methods: {

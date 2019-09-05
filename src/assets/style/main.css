@@ -2,6 +2,11 @@
     margin: 0;
     padding: 0;
 }
-a{
+
+a {
     text-decoration: none;
+}
+
+.y-icon {
+    display: inline-block;
 }

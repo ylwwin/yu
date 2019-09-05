@@ -1,6 +1,6 @@
 <template>
   <div class="page-root">
-    <header>
+    <header v-if="!$route.meta.nohead">
       <top-bar />
     </header>
     <main>
@@ -16,7 +16,7 @@ import TopBar from "@/components/layout/terminal/TopBar";
 import BottomBar from "@/components/layout/terminal/BottomBar";
 export default {
   components: {
-    ["top-bar"]: TopBar,
+    "top-bar": TopBar,
     "bottom-bar": BottomBar
   },
   data() {
@@ -41,6 +41,7 @@ export default {
     background: rgb(249, 250, 250);
     border-bottom: 1px solid rgb(240, 240, 240);
     box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.02);
+    z-index: 999;
   }
   footer {
     position: fixed;
@@ -50,6 +51,7 @@ export default {
     height: 40px;
     background: #fff;
     box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.02);
+    z-index: 999;
   }
   main {
     padding-top: 40px;

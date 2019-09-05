@@ -16,10 +16,10 @@ export default {
     return {
       active: "#1",
       menus: [
-        { label: "最新", link: "#1", color: "#F38181" },
-        { label: "段子", link: "#2", color: "#Aa96da" },
-        { label: "美图", link: "#3", color: "#62d2a2" },
-        { label: "随笔", link: "#4", color: "#3f72af" }
+        { label: "最新", link: "/funs/all", color: "#F38181" },
+        { label: "段子", link: "/funs/jok", color: "#Aa96da" },
+        { label: "美图", link: "/funs/pictures", color: "#62d2a2" },
+        { label: "随笔", link: "/funs/note", color: "#3f72af" }
       ]
     };
   }

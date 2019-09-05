@@ -19,7 +19,7 @@ export default {
           title: "单身狗靠狗脱单",
           date: "2019-06-11 09:30",
           author: "ylwwin",
-          imgUrl: "static/images/fun1.gif",
+          imgUrl: "/static/images/fun1.gif",
           diss: 10,
           zan: 20
         },
@@ -28,7 +28,7 @@ export default {
           title: "单身狗靠狗脱单2",
           date: "2019-06-11 09:30",
           author: "ylwwin",
-          imgUrl: "static/images/fun1.gif",
+          imgUrl: "/static/images/fun1.gif",
           diss: 10,
           zan: 20
         },
@@ -37,7 +37,7 @@ export default {
           title: "单身狗靠狗脱单2",
           date: "2019-06-11 09:30",
           author: "ylwwin",
-          imgUrl: "static/images/fun1.gif",
+          imgUrl: "/static/images/fun1.gif",
           diss: 10,
           zan: 20
         }

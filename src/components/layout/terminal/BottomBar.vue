@@ -1,16 +1,14 @@
-
-
-
 <template>
   <div class="top-root-box">
     <van-tabbar v-model="active">
-      <van-tabbar-item icon="friends-o">标签</van-tabbar-item>
-      <van-tabbar-item icon="friends-o">标签</van-tabbar-item>
+      <van-tabbar-item icon="home-o" to="/funs/all">首页</van-tabbar-item>
+      <van-tabbar-item icon="search">搜索</van-tabbar-item>
       <van-tabbar-item>
-        <embed src="/static/images/create.svg" width="48" height="48" type="image/svg+xml" />
+        <!-- <embed src="/static/images/create.svg" width="48" height="48" type="image/svg+xml" /> -->
+        <y-icon src="/static/images/create.svg" :width="48" :height="48" />
       </van-tabbar-item>
-      <van-tabbar-item icon="friends-o">标签</van-tabbar-item>
-      <van-tabbar-item icon="setting-o">标签</van-tabbar-item>
+      <van-tabbar-item icon="friends-o" to="/friends">朋友</van-tabbar-item>
+      <van-tabbar-item icon="user-o" to="/me">我</van-tabbar-item>
     </van-tabbar>
   </div>
 </template>
@@ -26,6 +24,7 @@ export default {
     return {
       active: 0,
       focus: false,
+      showSearch: false,
       history: [
         { label: "热搜1" },
         { label: "热搜12" },

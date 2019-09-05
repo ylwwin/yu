@@ -9,25 +9,31 @@
       <p>
         <span @click="viewDetail">{{content.title}}</span>
       </p>
-      <img :src="content.imgUrl">
+      <img :src="content.imgUrl" />
     </div>
     <div class="footer">
-      <div class="diss">
-        <i class="cubeic-hot"></i>
-        <span>{{content.title}}</span>
-      </div>
       <div class="tools">
-        <embed src="/static/images/praise.svg" width="32" height="32" type="image/svg+xml">
+        <y-icon src="/static/images/praise.svg" />
         <span>{{content.zan}}</span>
-        <embed src="/static/images/diss.svg" width="32" height="32" type="image/svg+xml">
+        <y-icon src="/static/images/diss.svg" />
         <span>{{content.diss}}</span>
-        <embed src="/static/images/link.svg" width="32" height="32" type="image/svg+xml">
+        <y-icon src="/static/images/link.svg" />
       </div>
     </div>
+    <van-popup v-model="showLink">内容</van-popup>
   </div>
 </template>
 <script>
+import { Popup } from "vant";
 export default {
+  components: {
+    [Popup.name]: Popup
+  },
+  data() {
+    return {
+      showLink: false
+    };
+  },
   props: ["content"],
   methods: {
     viewDetail() {
@@ -89,15 +95,16 @@ export default {
   }
   .tools {
     line-height: 24px;
-    embed,span{
+    embed,
+    span {
       display: inline-block;
       height: 32px;
       vertical-align: top;
     }
-    span{
+    span {
       line-height: 34px;
       margin: 0 12px 0 -8px;
-      font-size: 14px;
+      font-size: 12px;
       color: #666;
     }
   }

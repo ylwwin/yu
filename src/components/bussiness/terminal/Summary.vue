@@ -13,15 +13,15 @@
     </div>
     <div class="footer">
       <div class="hot-diss">
-        <embed src="/static/images/hot.svg" width="32" height="32" type="image/svg+xml" />
+        <y-icon src="/static/images/hot.svg" />
         <span>{{content.title}}</span>
       </div>
       <div class="tools">
-        <embed src="/static/images/praise.svg" width="32" height="32" type="image/svg+xml" />
-        <b>{{content.zan}}</b>
-        <embed src="/static/images/diss.svg" width="32" height="32" type="image/svg+xml" />
-        <b>{{content.diss}}</b>
-        <embed src="/static/images/link.svg" width="32" height="32" type="image/svg+xml" />
+        <y-icon src="/static/images/praise.svg" />
+        <span>{{content.zan}}</span>
+        <y-icon src="/static/images/diss.svg" />
+        <span>{{content.diss}}</span>
+        <y-icon src="/static/images/link.svg" />
         <span @click="viewDetail" class="float-right link">浏览全文</span>
       </div>
     </div>
@@ -80,12 +80,12 @@ export default {
   width: 100%;
   line-height: 32px;
   .hot-diss {
-    embed,
+    div,
     span {
       display: inline-block;
       vertical-align: middle;
     }
-    embed {
+    div {
       height: 32px;
     }
     span {
@@ -94,21 +94,16 @@ export default {
   }
   .tools {
     line-height: 24px;
-    embed,
-    b {
+    div,
+    span {
       display: inline-block;
       height: 32px;
       vertical-align: top;
     }
-    b,
     span {
       font-size: 12px;
-    }
-    b {
       line-height: 34px;
       margin: 0 12px 0 -8px;
-      font-size: 14px;
-      color: #8f8e8a;
     }
   }
 }
