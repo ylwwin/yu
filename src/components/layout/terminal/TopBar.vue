@@ -1,20 +1,26 @@
 <template>
-  <ul class="menus">
-    <li
-      v-for="menu in menus"
-      :key="menu.link"
-      :class="{'active':menu.link == active}"
-      @click="active = menu.link"
-    >
-      <router-link :to="menu.link" :style="'color:'+menu.color">{{menu.label}}</router-link>
-    </li>
-  </ul>
+  <van-sticky v-if="!$route.meta.nohead">
+    <ul class="menus">
+      <li
+        v-for="menu in menus"
+        :key="menu.link"
+        :class="{'active':menu.link == active}"
+        @click="active = menu.link"
+      >
+        <router-link :to="menu.link" :style="'color:'+menu.color">{{menu.label}}</router-link>
+      </li>
+    </ul>
+  </van-sticky>
 </template>
 <script>
+import { Sticky } from "vant";
 export default {
+  components: {
+    [Sticky.name]: Sticky
+  },
   data() {
     return {
-      active: "#1",
+      active: "/funs/all",
       menus: [
         { label: "最新", link: "/funs/all", color: "#F38181" },
         { label: "段子", link: "/funs/jok", color: "#Aa96da" },
@@ -28,6 +34,12 @@ export default {
 
 <style lang="scss" scoped>
 .menus {
+  width: 100%;
+  height: 40px;
+  background: rgb(249, 250, 250);
+  border-bottom: 1px solid #eee;
+  box-shadow: 0 0 4px 2px rgba(0, 0, 0, 0.08);
+  z-index: 999;
   list-style-type: none;
   li {
     position: relative;

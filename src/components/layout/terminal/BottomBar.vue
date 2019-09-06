@@ -1,16 +1,13 @@
 <template>
-  <div class="top-root-box">
-    <van-tabbar v-model="active">
-      <van-tabbar-item icon="home-o" to="/funs/all">首页</van-tabbar-item>
-      <van-tabbar-item icon="search">搜索</van-tabbar-item>
-      <van-tabbar-item>
-        <!-- <embed src="/static/images/create.svg" width="48" height="48" type="image/svg+xml" /> -->
-        <y-icon src="/static/images/create.svg" :width="48" :height="48" />
-      </van-tabbar-item>
-      <van-tabbar-item icon="friends-o" to="/friends">朋友</van-tabbar-item>
-      <van-tabbar-item icon="user-o" to="/me">我</van-tabbar-item>
-    </van-tabbar>
-  </div>
+  <van-tabbar v-model="active" active-color="#F38181" inactive-color="#000">
+    <van-tabbar-item icon="home-o" to="/funs/all">首页</van-tabbar-item>
+    <van-tabbar-item icon="search">搜索</van-tabbar-item>
+    <van-tabbar-item>
+      <y-icon src="/static/images/create.svg" :width="48" :height="48" />
+    </van-tabbar-item>
+    <van-tabbar-item icon="friends-o" to="/friends">朋友</van-tabbar-item>
+    <van-tabbar-item icon="user-o" to="/me">我</van-tabbar-item>
+  </van-tabbar>
 </template>
 
 <script>

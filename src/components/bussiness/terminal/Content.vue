@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <div class="header">
+  <van-panel style="margin: 8px 0; padding:8px;">
+    <div slot="header" class="header">
       <img src="/static/images/avatar.jpg" />
       <span>{{content.author}}</span>
       <em>{{content.date}}</em>
@@ -11,23 +11,20 @@
       </p>
       <img :src="content.imgUrl" />
     </div>
-    <div class="footer">
-      <div class="tools">
-        <y-icon src="/static/images/praise.svg" />
-        <span>{{content.zan}}</span>
-        <y-icon src="/static/images/diss.svg" />
-        <span>{{content.diss}}</span>
-        <y-icon src="/static/images/link.svg" />
-      </div>
+    <div slot="footer" class="footer">
+      <y-icon src="/static/images/praise.svg" />
+      <span>{{content.zan}}</span>
+      <y-icon src="/static/images/diss.svg" />
+      <span>{{content.diss}}</span>
+      <y-icon src="/static/images/link.svg" />
     </div>
-    <van-popup v-model="showLink">内容</van-popup>
-  </div>
+  </van-panel>
 </template>
 <script>
-import { Popup } from "vant";
+import { Panel } from "vant";
 export default {
   components: {
-    [Popup.name]: Popup
+    [Panel.name]: Panel
   },
   data() {
     return {
@@ -82,31 +79,17 @@ export default {
   }
 }
 .footer {
-  width: 100%;
-  line-height: 32px;
-
-  .diss {
-    i {
-      color: rgba(240, 40, 40, 0.72);
-    }
-    span {
-      font-size: 14px;
-    }
+  line-height: 24px;
+  div,
+  span {
+    display: inline-block;
+    height: 32px;
+    vertical-align: top;
   }
-  .tools {
-    line-height: 24px;
-    embed,
-    span {
-      display: inline-block;
-      height: 32px;
-      vertical-align: top;
-    }
-    span {
-      line-height: 34px;
-      margin: 0 12px 0 -8px;
-      font-size: 12px;
-      color: #666;
-    }
+  span {
+    font-size: 12px;
+    line-height: 34px;
+    margin: 0 12px 0 -8px;
   }
 }
 </style>

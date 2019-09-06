@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <div class="header">
+  <van-panel style="margin: 8px 0;">
+    <div slot="header" class="header">
       <img src="/static/images/avatar.jpg" />
       <span>{{content.author}}</span>
       <em>{{content.date}}</em>
@@ -11,24 +11,20 @@
       </p>
       <img :src="content.imgUrl" />
     </div>
-    <div class="footer">
-      <div class="hot-diss">
-        <y-icon src="/static/images/hot.svg" />
-        <span>{{content.title}}</span>
-      </div>
-      <div class="tools">
-        <y-icon src="/static/images/praise.svg" />
-        <span>{{content.zan}}</span>
-        <y-icon src="/static/images/diss.svg" />
-        <span>{{content.diss}}</span>
-        <y-icon src="/static/images/link.svg" />
-        <span @click="viewDetail" class="float-right link">浏览全文</span>
-      </div>
+    <div slot="footer" class="footer">
+      <y-icon src="/static/images/praise.svg" />
+      <span>{{content.zan}}</span>
+      <y-icon src="/static/images/diss.svg" />
+      <span>{{content.diss}}</span>
+      <y-icon src="/static/images/link.svg" />
+      <span @click="viewDetail" class="float-right link">浏览全文</span>
     </div>
-  </div>
+  </van-panel>
 </template>
 <script>
+import { Panel } from "vant";
 export default {
+  components: { [Panel.name]: Panel },
   props: ["content"],
   methods: {
     viewDetail() {
@@ -38,6 +34,11 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
+.content,
+.header {
+  padding: 8px 16px;
+  box-sizing: border-box;
+}
 .header {
   width: 100%;
   height: 32px;
@@ -68,6 +69,7 @@ export default {
 }
 .content {
   width: 100%;
+
   p {
     font-size: 14px;
     line-height: 36px;
@@ -76,35 +78,32 @@ export default {
     max-height: 120px;
   }
 }
-.footer {
-  width: 100%;
-  line-height: 32px;
-  .hot-diss {
-    div,
-    span {
-      display: inline-block;
-      vertical-align: middle;
-    }
-    div {
-      height: 32px;
-    }
-    span {
-      font-size: 14px;
-    }
+
+.hot-diss {
+  div,
+  span {
+    display: inline-block;
+    vertical-align: middle;
   }
-  .tools {
-    line-height: 24px;
-    div,
-    span {
-      display: inline-block;
-      height: 32px;
-      vertical-align: top;
-    }
-    span {
-      font-size: 12px;
-      line-height: 34px;
-      margin: 0 12px 0 -8px;
-    }
+  div {
+    height: 32px;
+  }
+  span {
+    font-size: 14px;
+  }
+}
+.footer {
+  line-height: 24px;
+  div,
+  span {
+    display: inline-block;
+    height: 32px;
+    vertical-align: top;
+  }
+  span {
+    font-size: 12px;
+    line-height: 34px;
+    margin: 0 12px 0 -8px;
   }
 }
 </style>

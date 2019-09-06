@@ -1,23 +1,22 @@
 <template>
   <div class="page-root">
-    <header v-if="!$route.meta.nohead">
-      <top-bar />
-    </header>
+    <top-bar />
     <main>
       <router-view />
     </main>
-    <footer v-if="!$route.meta.detail">
-      <bottom-bar />
-    </footer>
+    <bottom-input v-if="$route.meta.detail" />
+    <bottom-bar v-else />
   </div>
 </template>
 <script>
 import TopBar from "@/components/layout/terminal/TopBar";
 import BottomBar from "@/components/layout/terminal/BottomBar";
+import BottomInput from "@/components/layout/terminal/BottomInput";
 export default {
   components: {
     "top-bar": TopBar,
-    "bottom-bar": BottomBar
+    "bottom-bar": BottomBar,
+    "bottom-input": BottomInput
   },
   data() {
     return { active: 0 };
@@ -31,30 +30,11 @@ export default {
   width: 100vw;
   height: 100vh;
   box-sizing: border-box;
-  background: #f6f8fa;
-  header {
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 40px;
-    background: rgb(249, 250, 250);
-    border-bottom: 1px solid rgb(240, 240, 240);
-    box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.02);
-    z-index: 999;
-  }
-  footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    height: 40px;
-    background: #fff;
-    box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.02);
-    z-index: 999;
-  }
   main {
-    padding-top: 40px;
+    padding-bottom: 48px;
+    min-height: calc(100vh - 48px);
+    overflow: auto;
+    background: #f6f8fa;
   }
 }
 </style>

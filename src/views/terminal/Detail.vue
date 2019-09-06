@@ -1,11 +1,7 @@
 <template>
-  <div class="main-view-box">
-    <div class="content-box">
-      <fun :content="fun" />
-    </div>
-    <div class="diss-box">
-      <diss />
-    </div>
+  <div>
+    <fun :content="fun" />
+    <diss />
   </div>
 </template>
 <script>
@@ -36,7 +32,7 @@ export default {
   .diss-box {
     box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.08);
     padding: 8px;
-    margin-bottom: 8px;
+    margin: 8px 0;
     background: #fff;
   }
   .diss-box {

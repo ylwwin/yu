@@ -1,19 +1,22 @@
 <template>
-  <div class="main-view-box">
-    <ul>
-      <li v-for="fun in funs" :key="fun.id">
-        <fun :content="fun"></fun>
-      </li>
-    </ul>
+  <div>
+    <fun :content="fun" v-for="fun in funs" :key="fun.id"></fun>
   </div>
 </template>
 <script>
 import fun from "@/components/bussiness/terminal/Summary";
+import { Panel } from "vant";
 export default {
-  components: { fun },
+  components: { fun, [Panel.name]: Panel },
   data() {
     return {
-      funs: [
+      category: "",
+      funs: []
+    };
+  },
+  methods: {
+    query() {
+      this.funs = [
         {
           id: 1,
           title: "单身狗靠狗脱单",
@@ -41,27 +44,20 @@ export default {
           diss: 10,
           zan: 20
         }
-      ]
-    };
+      ];
+    }
+  },
+  mounted() {
+    this.query();
+  },
+  watch: {
+    $route: function(to) {
+      this.category = to.params.category;
+      this.query();
+    }
   }
 };
 </script>
 
 <style lang="scss" scoped>
-.main-view-box {
-  width: 100%;
-  padding-bottom: 40px;
-  ul {
-    width: 100%;
-    li {
-      background: #fff;
-      width: 100%;
-      margin-bottom: 8px;
-      padding: 8px;
-      border-radius: 2px;
-      box-sizing: border-box;
-      box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.08);
-    }
-  }
-}
 </style>
