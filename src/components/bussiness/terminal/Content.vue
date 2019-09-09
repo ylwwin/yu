@@ -7,9 +7,14 @@
     </div>
     <div class="content">
       <p>
-        <span @click="viewDetail">{{content.title}}</span>
+        <span>{{content.title}}</span>
       </p>
-      <img :src="content.imgUrl" />
+      <!-- <img :src="content.imgUrl" /> -->
+      <van-grid :column-num="3"  :gutter="0">
+        <van-grid-item v-for="value in 5" :key="value">
+          <van-image :src="content.imgUrl" />
+        </van-grid-item>
+      </van-grid>
     </div>
     <div slot="footer" class="footer">
       <y-icon src="/static/images/praise.svg" />
@@ -21,10 +26,12 @@
   </van-panel>
 </template>
 <script>
-import { Panel } from "vant";
+import { Panel, Grid, GridItem,Image  } from "vant";
 export default {
   components: {
-    [Panel.name]: Panel
+    [Panel.name]: Panel,
+    [Grid.name]: Grid,
+    [GridItem.name]: GridItem,[Image.name]: Image
   },
   data() {
     return {
@@ -73,9 +80,6 @@ export default {
   p {
     font-size: 14px;
     line-height: 36px;
-  }
-  img {
-    max-height: 240px;
   }
 }
 .footer {

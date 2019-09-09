@@ -6,10 +6,17 @@
       <em>{{content.date}}</em>
     </div>
     <div class="content">
-      <p>
-        <span @click="viewDetail">{{content.title}}</span>
-      </p>
-      <img :src="content.imgUrl" />
+      <p>{{content.title}}</p>
+      <van-grid :column-num="3" :gutter="0">
+        <van-grid-item v-for="(img, index) in content.imgs.slice(0, 3)" :key="img">
+          <van-image :src="img" />
+          <b
+            class="more-link"
+            @click="viewDetail"
+            v-if="content.imgs.length>3&&index==2"
+          >&plus;{{content.imgs.length - 3}}</b>
+        </van-grid-item>
+      </van-grid>
     </div>
     <div slot="footer" class="footer">
       <y-icon src="/static/images/praise.svg" />
@@ -22,9 +29,14 @@
   </van-panel>
 </template>
 <script>
-import { Panel } from "vant";
+import { Panel, Grid, GridItem, Image } from "vant";
 export default {
-  components: { [Panel.name]: Panel },
+  components: {
+    [Panel.name]: Panel,
+    [Grid.name]: Grid,
+    [GridItem.name]: GridItem,
+    [Image.name]: Image
+  },
   props: ["content"],
   methods: {
     viewDetail() {
@@ -69,13 +81,9 @@ export default {
 }
 .content {
   width: 100%;
-
   p {
     font-size: 14px;
     line-height: 36px;
-  }
-  img {
-    max-height: 120px;
   }
 }
 
@@ -105,6 +113,20 @@ export default {
     line-height: 34px;
     margin: 0 12px 0 -8px;
   }
+}
+.more-link {
+  position: absolute;
+  left: 2%;
+  top: 2%;
+  width: 96%;
+  height: 96%;
+  text-align: center;
+  font-size: 12px;
+  background: rgba(0, 0, 0, 0.32);
+  padding-top: 50%;
+  box-sizing: border-box;
+  font-size: 18px;
+  color: #fff;
 }
 </style>
 

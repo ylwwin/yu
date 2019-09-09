@@ -19,7 +19,6 @@
         <div class="content">{{item.content}}</div>
       </section>
     </div>
-    <!-- <div slot="footer" class="footer"></div> -->
   </van-panel>
 </template>
 <script>
@@ -84,6 +83,7 @@ export default {
     };
   },
 
+
   methods: {}
 };
 </script>
@@ -115,7 +115,7 @@ section.single-diss {
     }
     b {
       font-weight: normal;
-      text-shadow: 1px 1px rgba(0, 0, 0, 0.12);
+      text-shadow: 1px 1px rgba(0, 0, 0, 0.04);
     }
     span {
       position: absolute;

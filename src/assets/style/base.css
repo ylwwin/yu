@@ -61,7 +61,14 @@
 .link {
     color: #0077EE;
 }
+
 .van-grid-item__content::after {
     z-index: 1;
     border-width: 0 0 1px 0;
+}
+
+.van-grid-item__content {
+    padding: 4px !important;
+    box-sizing: content-box;
+    position: relative;
 }
