@@ -1,5 +1,5 @@
 <template>
-  <van-sticky v-if="!$route.meta.nohead">
+  <van-sticky>
     <ul class="menus">
       <li
         v-for="menu in menus"
@@ -38,7 +38,7 @@ export default {
   height: 40px;
   background: rgb(249, 250, 250);
   border-bottom: 1px solid #eee;
-  box-shadow: 0 0 4px 2px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.04);
   z-index: 999;
   list-style-type: none;
   li {
@@ -55,15 +55,20 @@ export default {
       height: 100%;
     }
   }
-  li.active::after {
+  li::after {
     position: absolute;
     content: "";
-    width: 12px;
+    width: 0;
     height: 2px;
     background: #f38181;
-    left: 50%;
-    margin-left: -6px;
     bottom: 4px;
+    left: 50%;
+    margin-left: 0;
+    transition: width .21s ease-in-out;
+  }
+  li.active::after {
+    margin-left: -6px;
+    width: 12px;
   }
 }
 </style>

@@ -36,7 +36,8 @@ export default new Router({
         {
           path: "/funs/:category",
           name: "funs",
-          component: () => import("@/views/terminal/Funs")
+          component: () => import("@/views/terminal/Funs"),
+          meta: { bar: true }
         },
         {
           path: "/detail",
@@ -48,13 +49,25 @@ export default new Router({
           path: "/me",
           name: "me",
           component: () => import("@/views/terminal/Me"),
-          meta: { nohead: true }
+          meta: { nohead: true, bar: true }
         },
         {
           path: "/friends",
           name: "friends",
           component: () => import("@/views/terminal/Friends"),
-          meta: { nohead: true }
+          meta: { nohead: true, bar: true }
+        },
+        {
+          path: "/makefun",
+          name: "makefun",
+          component: () => import("@/views/terminal/MakeFun"),
+          meta: { nohead: true, submit: true }
+        },
+        {
+          path: "/search",
+          name: "search",
+          component: () => import("@/views/terminal/Search"),
+          meta: { nohead: true, bar: true }
         }
       ]
     }

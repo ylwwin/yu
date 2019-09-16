@@ -1,85 +1,117 @@
 <template>
-  <div style="overflow:auto;">
-    <div class="info-box">
-      <div class="left">
-        <img src="/static/images/avatar.jpg" />
-      </div>
-      <div class="center">
-        <b>yllllll</b>
-        <van-tag color="#ffe1e1" text-color="#ad0000" size="mini">Lv 2</van-tag>
-      </div>
-      <div class="right">
-        <van-button type="danger" size="small" round icon="edit">签&nbsp;到</van-button>
-      </div>
+  <div style="overflow-x: hidden;">
+    <div class="user-bg van-hairline--bottom"></div>
+    <div class="user-logo">
+      <img src="/static/images/avatar.jpg" />
+      <b>ylwwin</b>
+      <span>
+        <van-icon name="sign" size="18px" />
+        <i>签到</i>
+      </span>
     </div>
-    <van-grid square :column-num="4">
-      <van-grid-item icon="new-o" text="动态" info="123" />
-      <van-grid-item icon="smile-comment-o" text="消息" />
-      <van-grid-item icon="friends-o" text="好友" />
-      <van-grid-item icon="records" text="编辑资料" />
-      <van-grid-item icon="flower-o" text="收藏" />
-      <van-grid-item icon="flag-o" text="足迹" />
-      <van-grid-item />
-      <van-grid-item />
-    </van-grid>
-    <van-cell-group title="分组">
-      <van-cell title="单元格" is-link />
-      <van-cell title="单元格" is-link />
-      <van-cell title="单元格" value="内容" />
-      <van-cell title="单元格" value="内容" />
+    <van-row class="user-links">
+      <van-col span="6">
+        <van-icon name="new-o" />
+        <p>动态</p>
+      </van-col>
+      <van-col span="6">
+        <van-icon name="smile-comment-o" />
+        <p>消息</p>
+      </van-col>
+      <van-col span="6">
+        <van-icon name="edit" />
+        <p>编辑资料</p>
+      </van-col>
+      <van-col span="6">
+        <van-icon name="star-o" />
+        <p>收藏</p>
+      </van-col>
+    </van-row>
+    <van-cell-group title="功能列表">
+      <van-cell icon="records" title="全部订单" is-link />
+      <van-cell icon="records" title="编辑资料" is-link />
+      <van-cell icon="setting-o" title="设置" is-link />
+      <van-cell icon="gift-o" title="关于我们" is-link />
     </van-cell-group>
   </div>
 </template>
+
 <script>
-import { Cell, CellGroup, Panel, Button, Grid, GridItem, Tag } from "vant";
+import { Row, Col, Icon, Cell, CellGroup } from "vant";
 export default {
   components: {
+    [Row.name]: Row,
+    [Col.name]: Col,
+    [Icon.name]: Icon,
     [Cell.name]: Cell,
-    [CellGroup.name]: CellGroup,
-    [Panel.name]: Panel,
-    [Button.name]: Button,
-    [Grid.name]: Grid,
-    [GridItem.name]: GridItem,
-    [Tag.name]: Tag
-  },
-  data() {
-    return {};
-  },
-  methods: {}
+    [CellGroup.name]: CellGroup
+  }
 };
 </script>
-<style lang="scss" scoped>
-.info-box {
-  display: flex;
-  width: 100%;
-  padding: 40px 0 24px;
-  background: #fff;
-  div.left,
-  div.center,
-  div.right {
-    height: 80px;
-    padding: 16px 0 16px 12px;
-    box-sizing: border-box;
+
+<style lang="scss">
+.user {
+  &-bg {
+    width: 100%;
+    height: 160px;
+    z-index: -1;
+    background: #f2f4f6;
+    box-shadow: 0 0 40px 10px rgba(0, 0, 0, 0.04) inset;
+    border-bottom: 1px solid #e6e8ea;
   }
-  div.left {
-    width: 60px;
+  &-logo {
+    width: 100%;
+    height: 60px;
+    margin-top: -40px;
+    z-index: 0;
+    padding: 8px 20px;
+    box-sizing: border-box;
+    img,
+    b,
+    span {
+      vertical-align: top;
+    }
     img {
       width: 48px;
       height: 48px;
-      border-radius: 100%;
+      border-radius: 4px;
     }
-  }
-  div.center {
-    width: calc(100% - 160px);
-    line-height: 28px;
-    font-size: 14px;
     b {
-      display: block;
+      margin-left: 12px;
+      font-weight: normal;
+      text-shadow: 1px 1px rgba(0, 0, 0, 0.18);
+    }
+    span {
+      float: right;
+      font-size: 12px;
+      line-height: 18px;
+      // border: 1px solid rgb(240, 40, 40);
+      color: rgb(240, 40, 40);
+      padding: 2px 8px;
+      border-radius: 2px;
+      .van-icon,
+      i {
+        vertical-align: middle;
+      }
+      i {
+        // margin-left: -2px;
+        font-style: normal;
+      }
+    }
+    span:active {
+      transform: translateY(1px);
     }
   }
-  div.right {
-    width: 100px;
-    padding-top: 24px;
+  &-links {
+    padding: 15px 0;
+    font-size: 12px;
+    text-align: center;
+    background-color: #fff;
+    margin-top: 12px;
+    .van-icon {
+      display: block;
+      font-size: 24px;
+    }
   }
 }
 </style>

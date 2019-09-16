@@ -5,11 +5,12 @@ import App from "./App";
 import router from "./router";
 import "./assets/font/iconfont.css";
 import axios from "axios";
-
+import { Icon } from "vant";
 import Yicon from "@/components/base/terminal/Yicon";
 
 Vue.prototype.$axios = axios;
 Vue.config.productionTip = false;
+Vue.use(Icon);
 
 Vue.component("y-icon", Yicon);
 new Vue({

@@ -1,5 +1,5 @@
 <template>
-  <van-panel style="margin: 8px 0; padding:8px;">
+  <van-panel style="padding:8px;">
     <div slot="header" class="header">
       <y-icon src="/static/images/diss.svg" style="float:left" />
       <span style="float:left">
@@ -111,7 +111,7 @@ section.single-diss {
       width: 24px;
       height: 24px;
       margin-right: 4px;
-      border-radius: 100%;
+      border-radius: 2px;
     }
     b {
       font-weight: normal;
@@ -126,7 +126,7 @@ section.single-diss {
         vertical-align: middle;
       }
       i {
-        margin: 0 12px 0 -10px;
+        margin: 0 4px 0 -8px;
         font-style: normal;
         font-size: 12px;
       }

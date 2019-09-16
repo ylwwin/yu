@@ -1,5 +1,5 @@
 <template>
-  <van-panel style="margin: 8px 0;">
+  <van-panel style="">
     <div slot="header" class="header">
       <img src="/static/images/avatar.jpg" />
       <span>{{content.author}}</span>
@@ -65,7 +65,7 @@ export default {
     margin-top: 2px;
     width: 28px;
     height: 28px;
-    border-radius: 50%;
+    border-radius: 2px;
     box-shadow: 1px 1px rgba(0, 0, 0, 0.04);
   }
   span {

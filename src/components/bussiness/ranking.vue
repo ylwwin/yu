@@ -99,7 +99,7 @@ export default {
       li {
         width: 100%;
         margin-bottom: 8px;
-        border-bottom: 1px solid #e5e5e5;
+        // border-bottom: 1px solid #e5e5e5;
         line-height: 24px;
         i,
         span {
@@ -130,7 +130,7 @@ export default {
       }
       li:hover {
         transform: scale(1.01);
-        border-bottom: 1px solid #c5c5c5;
+        // border-bottom: 1px solid #c5c5c5;
       }
     }
   }
