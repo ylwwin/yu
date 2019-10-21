@@ -2,9 +2,7 @@
   <div class="page-root">
     <top-bar v-if="!$route.meta.nohead" />
     <main>
-      <!-- <transition name="van-slide-up"> -->
       <router-view />
-      <!-- </transition> -->
     </main>
     <bottom-input v-if="$route.meta.detail" />
     <bottom-bar v-if="$route.meta.bar" />
@@ -39,7 +37,6 @@ export default {
     padding-bottom: 48px;
     min-height: calc(100vh - 48px);
     overflow: auto;
-    // background: #f6f8fa;
   }
 }
 </style>

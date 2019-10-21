@@ -4,7 +4,7 @@
       content-position="left"
       hairline
       :style="{ color: '#3f3f3f', padding: '0 8px', fontSize:'12px' }"
-    >选择分类</van-divider>
+    >选择一个类型叭</van-divider>
     <van-row type="flex" justify="center">
       <van-col :span="22">
         <van-tag
@@ -13,6 +13,9 @@
           :key="tag.value"
           :color="tag.color"
           style="margin-right: 16px"
+          :plain="active != tag.value"
+          @click="active = tag.value"
+          size="medium"
         >{{tag.label}}</van-tag>
       </van-col>
     </van-row>
@@ -23,7 +26,14 @@
     >撩人的文字</van-divider>
     <van-row type="flex" justify="center">
       <van-col :span="24">
-        <van-field v-model="value" placeholder="写点什么吧~" type="textarea" rows="5" clearable arrow-direction="right"/>
+        <van-field
+          v-model="content"
+          placeholder="写点什么吧~"
+          type="textarea"
+          rows="5"
+          clearable
+          arrow-direction="right"
+        />
       </van-col>
     </van-row>
 
@@ -54,13 +64,19 @@ export default {
   data() {
     return {
       fileList: [],
-      value: "",
+      content: "",
+      active: "0",
       tags: [
-        { label: "段子", value: "/funs/jok", color: "#Aa96da" },
-        { label: "美图", value: "/funs/pictures", color: "#62d2a2" },
-        { label: "随笔", value: "/funs/note", color: "#3f72af" }
+        { label: "段子", value: "0", color: "#Aa96da" },
+        { label: "美图", value: "1", color: "#62d2a2" },
+        { label: "随笔", value: "2", color: "#3f72af" }
       ]
     };
   }
 };
 </script>
+<style lang="scss" scoped>
+.van-divider::before {
+  display: none;
+}
+</style>

@@ -70,6 +70,32 @@ export default new Router({
           meta: { nohead: true, bar: true }
         }
       ]
+    },
+    {
+      path: "/listlayout",
+      name: "listlayout",
+      component: () => import("@/layout/terminal/ListLayout"),
+      meta: { nohead: true, bar: true },
+      children: [
+        {
+          path: "/collections",
+          name: "collections",
+          component: () => import("@/views/terminal/Collections"),
+          meta: { title: "我的收藏" }
+        },
+        {
+          path: "/messages",
+          name: "messages",
+          component: () => import("@/views/terminal/Messages"),
+          meta: { title: "我的消息" }
+        },
+        {
+          path: "/footmark",
+          name: "footmark",
+          component: () => import("@/views/terminal/Footmark"),
+          meta: { title: "我的足迹" }
+        }
+      ]
     }
   ]
 });

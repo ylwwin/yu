@@ -4,31 +4,18 @@
     <div class="user-logo">
       <img src="/static/images/avatar.jpg" />
       <b>ylwwin</b>
-      <span>
+      <span @click="signIn">
         <van-icon name="sign" size="18px" />
         <i>签到</i>
       </span>
     </div>
     <van-row class="user-links">
-      <van-col span="6">
-        <van-icon name="new-o" />
-        <p>动态</p>
-      </van-col>
-      <van-col span="6">
-        <van-icon name="smile-comment-o" />
-        <p>消息</p>
-      </van-col>
-      <van-col span="6">
-        <van-icon name="edit" />
-        <p>编辑资料</p>
-      </van-col>
-      <van-col span="6">
-        <van-icon name="star-o" />
-        <p>收藏</p>
+      <van-col span="6" v-for="tool in tools" :key="tool.title" @click="goTo(tool.link)">
+        <van-icon :name="tool.icon" />
+        <p>{{tool.title}}</p>
       </van-col>
     </van-row>
     <van-cell-group title="功能列表">
-      <van-cell icon="records" title="全部订单" is-link />
       <van-cell icon="records" title="编辑资料" is-link />
       <van-cell icon="setting-o" title="设置" is-link />
       <van-cell icon="gift-o" title="关于我们" is-link />
@@ -37,7 +24,7 @@
 </template>
 
 <script>
-import { Row, Col, Icon, Cell, CellGroup } from "vant";
+import { Row, Col, Icon, Cell, CellGroup, Toast } from "vant";
 export default {
   components: {
     [Row.name]: Row,
@@ -45,6 +32,41 @@ export default {
     [Icon.name]: Icon,
     [Cell.name]: Cell,
     [CellGroup.name]: CellGroup
+  },
+  data() {
+    return {
+      tools: [
+        { icon: "smile-comment-o", title: "消息", link: "/messages" },
+        { icon: "star-o", title: "收藏", link: "/collections" },
+        { icon: "new-o", title: "足迹", link: "/footmark" }
+      ]
+    };
+  },
+  methods: {
+    goTo(link) {
+      this.$router.push(link);
+    },
+    signIn() {
+      const toast = Toast.loading({
+        duration: 0, // 持续展示 toast
+        forbidClick: true, // 禁用背景点击
+        // loadingType: "spinner",
+        message: "倒计时 3 秒",
+        icon: "/static/images/loadding.svg",
+        className: "loadding-box"
+      });
+
+      let second = 3;
+      const timer = setInterval(() => {
+        second--;
+        if (second) {
+          toast.message = `倒计时 ${second} 秒`;
+        } else {
+          clearInterval(timer);
+          Toast.clear();
+        }
+      }, 1000);
+    }
   }
 };
 </script>
@@ -79,22 +101,19 @@ export default {
     b {
       margin-left: 12px;
       font-weight: normal;
-      text-shadow: 1px 1px rgba(0, 0, 0, 0.18);
     }
     span {
       float: right;
       font-size: 12px;
       line-height: 18px;
-      // border: 1px solid rgb(240, 40, 40);
       color: rgb(240, 40, 40);
-      padding: 2px 8px;
+      padding: 0 12px 4px;
       border-radius: 2px;
       .van-icon,
       i {
         vertical-align: middle;
       }
       i {
-        // margin-left: -2px;
         font-style: normal;
       }
     }
@@ -108,10 +127,16 @@ export default {
     text-align: center;
     background-color: #fff;
     margin-top: 12px;
+    color: rgb(60, 60, 75);
     .van-icon {
       display: block;
       font-size: 24px;
     }
   }
+}
+.loadding-box {
+  background: rgba(0, 0, 0, 0.42);
+  padding: 4px;
+  border-radius: 2px;
 }
 </style>

@@ -23,8 +23,8 @@ export default {
       active: "/funs/all",
       menus: [
         { label: "最新", link: "/funs/all", color: "#F38181" },
-        { label: "段子", link: "/funs/jok", color: "#Aa96da" },
         { label: "美图", link: "/funs/pictures", color: "#62d2a2" },
+        { label: "段子", link: "/funs/jok", color: "#Aa96da" },
         { label: "随笔", link: "/funs/note", color: "#3f72af" }
       ]
     };

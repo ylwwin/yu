@@ -1,22 +1,34 @@
 <template>
   <van-tabbar v-model="active" active-color="#F38181" inactive-color="#000">
-    <van-tabbar-item icon="home-o" to="/funs/all">首页</van-tabbar-item>
-    <van-tabbar-item icon="search" to="/search">搜索</van-tabbar-item>
-    <van-tabbar-item to="/makefun">
-      <van-icon name="add-o" size="26px" color="rgb(240,40,40)" />
+    <van-tabbar-item to="/funs/all">
+      <van-icon name="home-o" size="20px" />
     </van-tabbar-item>
-    <van-tabbar-item icon="friends-o" to="/friends">朋友</van-tabbar-item>
-    <van-tabbar-item icon="user-o" to="/me">我</van-tabbar-item>
+    <van-tabbar-item>
+      <van-icon name="search" size="20px" @click="tobeContinue" />
+    </van-tabbar-item>
+    <van-tabbar-item to="/makefun">
+      <!-- <van-icon name="add" size="26px" color="rgb(245,40,40)" /> -->
+      <div class="logo-box">
+        <span>yu</span>
+      </div>
+    </van-tabbar-item>
+    <van-tabbar-item @click="tobeContinue">
+      <van-icon name="friends-o" size="20px" />
+    </van-tabbar-item>
+    <van-tabbar-item to="/me">
+      <van-icon name="user-o" size="18px" />
+    </van-tabbar-item>
   </van-tabbar>
 </template>
 
 <script>
-import { Tabbar, TabbarItem, Icon } from "vant";
+import { Tabbar, TabbarItem, Toast, Icon } from "vant";
 export default {
   components: {
     [Tabbar.name]: Tabbar,
     [TabbarItem.name]: TabbarItem,
-    [Icon.name]: Icon
+    [Icon.name]: Icon,
+    [Toast.name]: Toast
   },
   data() {
     return {
@@ -36,49 +48,47 @@ export default {
         { label: "热搜11" }
       ]
     };
+  },
+  methods: {
+    tobeContinue() {
+      Toast.loading({
+        icon: "ellipsis",
+        message: "敬请期待",
+        duration: 1000
+      });
+    }
+  },
+  watch: {
+    $route(to, from) {
+      if (to.path.startsWith("/funs/")) this.active = 0;
+    }
   }
 };
 </script>
 
 <style lang="scss" scoped>
-.top-root-box {
+.logo-box {
   position: relative;
-  height: 40px;
-  padding: 0 4px;
-  box-shadow: 0 0 4px 2px rgba(0, 0, 0, 0.08);
-  box-sizing: border-box;
+  border: 1px solid #f38181;
+  padding: 1px 2px 4px;
+  line-height: 12px;
+  margin-top: -2px;
+  color: #999;
+  border-radius: 2px;
+  box-shadow: 0 0 1px 1px rgba(243, 129, 129, .21);
+  span {
+    display: block;
+    transform: scale(0.88);
+  }
+}
+.logo-box::after {
+  content: "+";
+  position: absolute;
+  right: -5px;
+  top: -7px;
   background: #fff;
-  .item {
-    float: left;
-    line-height: 40px;
-    embed {
-      margin-top: 4px;
-    }
-  }
-  .left {
-    width: 10%;
-    height: 100%;
-  }
-  .center {
-    width: 80%;
-    text-align: center;
-    em,
-    embed {
-      vertical-align: middle;
-    }
-    em {
-      font-size: 14px;
-      color: #aaa;
-    }
-    embed {
-      margin-top: -6px;
-    }
-  }
-  .right {
-    width: 10%;
-    i {
-      color: #e5e5e5;
-    }
-  }
+  font-size: 14px;
+  line-height: 12px;
+  color: #62d2a2;
 }
 </style>

@@ -72,3 +72,11 @@
     box-sizing: content-box;
     position: relative;
 }
+
+.van-divider::before {
+    max-width: 4px !important;
+    margin-right: 4px !important;
+}
+.van-divider::after {
+    margin-left: 4px !important;
+}
